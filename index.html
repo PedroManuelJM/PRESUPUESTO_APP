@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presupuesto.app </title>
+    
+    <!-- Latest compiled and minified CSS --> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<style>
+    @media print {
+        .btn,.fa-edit,.fa-trash,#titulo, #formulario,#edit, #delete {
+            display: none !important;  
+        }
+    }
+
+</style> 
+<body>
+    <nav class="navbar navbar-light bg-dark">
+        <div id="titulo"  class="container-fluid">
+           <a href="#" class="text-white"> <i class="fas fa-file-alt"> Calcular Presupuesto </i> </a>
+        </div>
+    </nav>
+    <br><br>
+
+    <section id="content">
+        <div class="container">
+            <div id="formulario" class="section">
+                <div class="row">
+                    <form class="col s12 " autocomplete="off">
+                        <div class="row">
+                            <div class="form-group col s6">
+                                <label for="fproduct">Producto o Servicio</label>
+                                <input type="text" class="validate form-control" id="fproduct" placeholder="">
+                                
+                            </div>
+                            <div class="form-group col s6">
+                                <label for="fcateg">Categoria</label>
+                                <select id="fcateg" class="validate form-control" name="fcateg">
+                                  <option value="" selected>Seleccione la categoria </option>
+                                  <option value="Accesorios de computadora">Accesorios de computadora</option>
+                                  <option value="Insumos">Insumos</option>
+                                </select>
+                                
+                              </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <label for="fcant">Cantidad</label>
+                                <input type="text" class="validate form-control" id="fcant" placeholder="">
+                            </div>
+                            <div class="input-field col s6">
+                                <label for="fprec">Precio</label>
+                                <input type="number" class="validate form-control" id="fprec" min="1" pattern="^[0-9]+">
+                            </div>
+                       
+                        </div>
+                        </br>
+                        <div class="container">
+                            <button class="btn btn-success float-right" id="sub-btn" type="submit" name="action">Guardar <i class="fas fa-save"></i></button>
+                        </div>
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div id="toast" class="showsss" style="margin-left: 50px;"></div>
+
+        <div class="container">
+            <h5>Presupuesto</h5>
+            <div class="row">
+                <table class="table table-responsive-sm"  id="userDetails">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>N°</th>
+                            <th>Producto o Servicio</th>
+                            <th>Categoria</th>
+                            <th>Cantidad</th>
+                            <th>Precio</th>
+                            <th>Subtotal</th>
+                            <th id="edit"></th>
+                            <th id="delete"></th>
+                        </tr>
+                    </thead>
+                    <tbody id="formData"></tbody>
+                </table>
+                <div class="container col-12 text-center">
+                    <input type="hidden" class="validate" id="ftotal" placeholder="">
+                    <button class="btn btn-info" onclick="window.print()">Descargar</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/script.js"></script>
+
+
+</body>
+
+
+</html>
